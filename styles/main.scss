@@ -1,0 +1,480 @@
+/* -- MIXINS -- */
+
+// Fluid Type
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+  @each $property in $properties {
+    #{$property}: $min-value;
+  }
+
+  @media screen and (min-width: $min-vw) {
+    @each $property in $properties {
+      #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+    }
+  }
+
+  @media screen and (min-width: $max-vw) {
+    @each $property in $properties {
+      #{$property}: $max-value;
+    }
+  }
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+// Responsive widths
+@mixin responsive ($width) {
+  @if $width == extra-wide-screens {
+    @media only screen and (max-width: $width-xl) {
+      @content;}
+    }
+  @else if $width == wide-screens {
+    @media only screen and (max-width: $width-l) {
+      @content;}
+    }
+  @else if $width == medium-screens {
+    @media only screen and (max-width: $width-m) {
+      @content;}
+    }
+  @else if $width == small-screens {
+    @media only screen and (max-width: $width-s) {
+      @content;}
+    }
+  @else if $width == extra-small-screens {
+    @media only screen and (max-width: $width-xs) { 
+      @content;}
+    }
+  }
+
+// Background Image Sizing
+@mixin bg-dimensions {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+// Smooth Transitions
+@mixin transition {
+    transition: ease-in-out .25s; 
+}
+
+@mixin transition-stagger-1 {
+	transition: ease-in-out .4s;
+}
+
+// Text Background
+@mixin text-background {
+    background-image: -webkit-linear-gradient(bottom, $accent 40%, transparent 40%);
+}
+
+/* -- VARIABLES -- */
+
+// Fonts
+$source: 'Source Sans Pro', sans-serif;
+$futura: "futura-pt", sans-serif;
+$futura-bold: "futura-pt-bold", sans-serif;
+
+// Modular Scales
+$mod-1: 1.50;
+$mod-2: 1.20;
+
+$h1-max: $mod-1 * $mod-1 * $mod-1 * $mod-1 * 1rem;
+$h1-min: $mod-2 * $mod-2 * $mod-2 * $mod-2 * 1rem;
+
+$h2-max: $mod-1 * $mod-1 * $mod-1 * 1rem;
+$h2-min: $mod-2 * $mod-2 * $mod-2 * 1rem;
+
+$h3-max: $mod-1 * $mod-1 * 1rem;
+$h3-min: $mod-2 * $mod-2 * 1rem;
+
+$h4-max: $mod-1 * 1rem;
+$h4-min: $mod-2 * 1rem;
+
+// Colours
+$font-dark: #404040;
+$font-dark-1: #626161;
+
+$font-light: #FFFFFF;
+$font-light-1: #FCFCFC;
+
+$accent: #E6EAF6;
+$accent-1: #F44D6B;
+
+// Responsive Widths
+$width-xl: 1440px;
+$width-l: 1200px;
+$width-m: 992px;
+$width-s: 600px;
+$width-xs: 320px;
+
+/* -- GLOBAL STYLES -- */
+
+html, body {
+	font-size: 16px;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Main Divs
+.top {
+	width: 100%;
+	height: auto;
+	@include bg-dimensions;
+	background-image: url('../images/bg-test.jpg');
+}
+
+.inner-content {
+    padding: 48px;
+    @include responsive(medium-screens) {
+    	padding: 36px;
+    }
+    @include responsive(small-screens) {
+    	padding: 24px;
+    }
+}
+
+.about {
+	padding: 36px 48px 0 48px;
+	@include responsive(medium-screens) {
+    	padding: 36px 36px 0 36px;
+    }
+    @include responsive(small-screens) {
+    	padding: 24px 24px 0 24px;
+    }
+}
+
+.projects {
+	padding: 36px 48px 36px 48px;
+	@include responsive(medium-screens) {
+		padding: 36px 36px 0 36px;
+	}
+	@include responsive(small-screens) {
+		padding: 24px 24px 0 24px;
+	}
+}
+
+#projects-row {
+	padding: 48px 0 0 0;
+	@include responsive(medium-screens) {
+		padding: 36px 0 0 0;
+	}
+	@include responsive(small-screens) {
+		padding: 24px 0 0 0;
+	}
+}
+
+#project-1, #project-2 {
+    padding: 0;
+}
+
+// Navbar Styles
+.nav-wrapper {
+	padding: 0 48px 0 48px;
+	@include responsive(medium-screens) {
+		padding: 0 36px 0 36px;
+	}
+	@include responsive(small-screens) {
+		padding: 0 24px 0 24px;
+	}
+}
+
+.nav-wrapper ul.right li a {
+	color: $font-light-1;
+	font-family: $futura;
+	font-size: 18px;
+	font-weight: 500;
+	background-color: transparent;
+	@include transition;
+}
+
+.nav-wrapper ul.side-nav li a {
+	color: $font-dark;
+	font-family: $futura;
+	font-size: 16px;
+	font-weight: 500;
+	@include transition;
+}
+
+#logo {
+	width: 40px;
+	height: 38px;
+	margin-top: 11px;
+}
+
+a#burger {
+	margin: 0;
+}
+
+ul.right .menu-1:hover a, ul.right .menu-2:hover a, ul.right .menu-3:hover a, ul.right .menu-4:hover a {
+    color: $accent;
+    @include transition;
+}
+
+// Text Styles
+h3.name {
+	@include fluid-type(font-size, 37.5em, 75em, $h3-min, $h3-max);
+	font-family: $futura;
+	font-weight: 400;
+	color: $font-light-1;
+	line-height: 1.15;
+}
+
+h1.intro {
+	@include fluid-type(font-size, 37.5em, 75em, $h1-min, $h1-max);
+	font-family: $futura;
+	font-weight: 600;
+	color: $font-light;
+	line-height: 1.15;
+	margin: 24px 0 24px 0;
+}
+
+h4.desc {
+	@include fluid-type(font-size, 37.5em, 75em, $h4-min, $h4-max);
+	font-family: $source;
+	font-weight: 300;
+	color: $font-light-1;
+	line-height: 1.25;
+	max-width: 30rem;
+}
+
+span.highlight {
+	@include text-background;
+}
+
+h2.about-title {
+	@include fluid-type(font-size, 37.5em, 75em, $h2-min, $h2-max);
+	font-family: $futura-bold;
+	color: $font-dark;
+	margin: 24px 0 24px 0;
+}
+
+p.about-desc {
+	font-family: $source;
+	color: $font-dark-1;
+	line-height: 1.5;
+	font-size: 18px;
+	margin: 48px 0 0 0;
+	max-width: 55rem;
+	@include responsive(medium-screens) {
+		font-size: 17px;
+	}
+	@include responsive(small-screens) {
+		font-size: 16px;
+	}
+}
+
+h4.lowdown {
+	@include fluid-type(font-size, 37.5em, 75em, $h4-min, $h4-max);
+	font-family: $futura;
+	color: $font-dark;
+	font-weight: 500;
+	margin: 48px 0 24px 0;
+}
+
+p.experience-title {
+	font-family: $futura;
+	color: $font-dark;
+	font-weight: 500;
+	font-size: 20px;
+}
+
+p.experience-desc {
+	font-family: $source;
+	color: $font-dark-1;
+	line-height: 1.5;
+	font-size: 18px;
+	max-width: 55rem;
+	@include responsive(medium-screens) {
+		font-size: 17px;
+	}
+	@include responsive(small-screens) {
+		font-size: 16px;
+	}
+}
+
+p.tech-title {
+	font-family: $futura;
+	color: $font-dark;
+	font-weight: 500;
+	font-size: 20px;
+}
+
+p.tech-desc {
+	font-family: $source;
+	color: $font-dark-1;
+	line-height: 1.5;
+	font-size: 18px;
+	max-width: 55rem;
+	@include responsive(medium-screens) {
+		font-size: 17px;
+	}
+	@include responsive(small-screens) {
+		font-size: 16px;
+	}
+}
+
+p.software-title {
+	font-family: $futura;
+	color: $font-dark;
+	font-weight: 500;
+	font-size: 20px;
+}
+
+p.software-desc {
+	font-family: $source;
+	color: $font-dark-1;
+	line-height: 1.5;
+	font-size: 18px;
+	max-width: 55rem;
+	@include responsive(medium-screens) {
+		font-size: 17px;
+	}
+	@include responsive(small-screens) {
+		font-size: 16px;
+	}
+}
+
+h2.projects-title {
+	@include fluid-type(font-size, 37.5em, 75em, $h2-min, $h2-max);
+	font-family: $futura-bold;
+	color: $font-dark;
+	margin: 0 0 24px 0;
+}
+
+h4.project-title-1 {
+	@include fluid-type(font-size, 37.5em, 75em, $h4-min, $h4-max);
+	font-family: $futura;
+	font-weight: 500;
+}
+
+p.project-desc {
+	font-family: $source;
+	color: $font-dark-1;
+	line-height: 1.5;
+	font-size: 18px;
+	max-width: 30rem;
+
+}
+
+// Button Styles
+.btn {
+	text-transform: uppercase;
+	font-family: $futura;
+	font-size: 18px;
+	background-color: transparent;
+	color: $font-light;
+	border: 1px solid $font-light;
+	box-shadow: none;
+	@include responsive(medium-screens) {
+		font-size: 16px;
+	}
+	@include responsive(small-screens) {
+		font-size: 14px;
+	}
+}
+
+#btn-2 {
+	margin-left: 24px;
+}
+
+.btn:hover {
+	background-color: $font-light;
+	border: 1px solid $font-light;
+	color: $font-dark;
+}
+
+.buttons {
+    margin: 48px 0 24px 0;
+    @include responsive(medium-screens) {
+    	margin: 36px 0 24px 0;
+    }
+}
+
+// Image Styles
+#html, #css, #sass, #javascript, #photoshop {
+	width: 48px;
+	height: 48px;
+}
+
+#strafe, #heni {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+// Overlay styles
+.box {
+	position: relative;
+	width: 100%;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	@include transition;
+	background-color: $accent-1;
+}
+
+.box:hover .overlay {
+	opacity: 0.85;
+}
+
+.overlay-text {
+	font-family: $futura;
+	color: $font-light;
+	font-size: 22px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+    text-align: center;
+    margin-top: 24px;
+    @include transition-stagger-1;
+    @include responsive(medium-screens) {
+    	font-size: 20px;
+    }
+}
+
+.box:hover .overlay-text {
+	margin-top: 0;
+	@include transition-stagger-1;
+}
+
+.enter {
+	font-family: $futura;
+	color: $font-light;
+	font-size: 20px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+    text-align: center;
+    margin-top: 48px;
+    opacity: 0;
+    @include transition-stagger-1;
+    @include responsive(medium-screens) {
+    	font-size: 18px;
+    }
+}
+
+.enter a {
+	color: inherit;
+}
+
+.enter a:hover {
+	text-decoration: underline;
+}
+
+.box:hover .enter {
+    opacity: 1;
+}
