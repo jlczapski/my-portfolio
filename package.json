@@ -2,11 +2,11 @@
   "devDependencies": {
     "gulp": "latest",
     "gulp-coffee": "latest",
-    "gulp-concat": "latest",
-    "gulp-connect": "latest",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.5.0",
     "gulp-gh-pages": "^0.5.4",
-    "gulp-sass": "latest",
-    "gulp-uglify": "latest",
+    "gulp-sass": "^4.0.0",
+    "gulp-uglify": "^3.0.0",
     "gulp-util": "latest"
   },
   "dependencies": {
