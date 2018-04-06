@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat');
+    deploy = require('gulp-gh-pages');
 
 var jsSources = ['scripts/*.js'],
     sassSources = ['styles/*.scss'],
@@ -53,4 +54,9 @@ gulp.task('html', function() {
   .pipe(connect.reload())
 });
 
-gulp.task('default', ['html', 'js', 'sass', 'connect', 'watch']);
+gulp.task('deploy', function() {
+  return gulp.src("./dist/**/*")
+    .pipe(deploy())
+});
+
+gulp.task('default', ['html', 'js', 'sass', 'connect', 'watch', 'deploy']);
