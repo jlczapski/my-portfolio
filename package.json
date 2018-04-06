@@ -10,6 +10,7 @@
     "gulp-util": "latest"
   },
   "dependencies": {
+    "balanced-match": "^1.0.0",
     "gulp-sass-import": "^1.0.0"
   }
 }
