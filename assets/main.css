@@ -1,3 +1,5 @@
+/* -- MIXINS -- */
+/* -- VARIABLES -- */
 /* -- GLOBAL STYLES -- */
 html, body {
   font-size: 16px;
@@ -298,7 +300,7 @@ p.project-desc {
 
 .box {
   position: relative;
-  width: 100%; }
+  width: 95%; }
 
 .overlay {
   position: absolute;
