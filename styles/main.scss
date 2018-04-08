@@ -652,3 +652,8 @@ h4.details-title {
 .box:hover .enter {
     opacity: 1;
 }
+
+a[href^=tel] {
+	text-decoration:inherit;
+	color: inherit;
+}
