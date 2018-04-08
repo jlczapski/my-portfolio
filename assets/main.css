@@ -305,6 +305,17 @@ p.project-desc-1, p.project-desc-2 {
 p.project-desc-1 a, p.project-desc-2 a {
   color: inherit; }
 
+p.enter-site {
+  font-family: "futura-pt", sans-serif;
+  font-size: 20px;
+  color: #404040; }
+
+p.enter-site a {
+  color: inherit; }
+
+span.underline {
+  border-bottom: 1px solid #404040; }
+
 h3.more {
   font-size: 1.44rem;
   font-family: "futura-pt", sans-serif;
@@ -528,4 +539,6 @@ h4.details-title {
     color: #404040; }
   .nav-wrapper ul.right li a:hover {
     color: #404040;
-    transition: ease-in-out .25s; } }
+    transition: ease-in-out .25s; }
+  p.enter-site:hover {
+    color: #626161; } }

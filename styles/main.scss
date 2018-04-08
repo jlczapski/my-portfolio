@@ -407,6 +407,20 @@ p.project-desc-1 a, p.project-desc-2 a {
 	color: inherit;
 }
 
+p.enter-site {
+	font-family: $futura;
+	font-size: 20px;
+	color: $font-dark;
+}
+
+p.enter-site a {
+    color: inherit;
+}
+
+span.underline {
+	border-bottom: 1px solid $font-dark;
+}
+
 h3.more {
 	@include fluid-type(font-size, 37.5em, 75em, $h3-min, $h3-max);
 	font-family: $futura;
@@ -610,6 +624,7 @@ h4.details-title {
 	color: inherit;
 }
 
+// Hover styles
 @media (hover: hover) {
     .enter a:hover {
 		text-decoration: underline;
@@ -644,6 +659,9 @@ h4.details-title {
 	.nav-wrapper ul.right li a:hover {
 	    color: $font-dark;
 	    @include transition;
+	}
+	p.enter-site:hover {
+		color: $font-dark-1;
 	}
 }
 
