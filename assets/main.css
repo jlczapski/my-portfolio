@@ -199,18 +199,18 @@ p.about-desc {
     p.about-desc {
       font-size: 16px; } }
 
-h4.lowdown {
-  font-size: 1.2rem;
+h3.lowdown {
+  font-size: 1.44rem;
   font-family: "futura-pt", sans-serif;
   color: #404040;
   font-weight: 500;
   margin: 48px 0 24px 0; }
   @media screen and (min-width: 37.5em) {
-    h4.lowdown {
-      font-size: calc(1.2rem + 0.3 * (100vw - 37.5em) / 37.5); } }
+    h3.lowdown {
+      font-size: calc(1.44rem + 0.81 * (100vw - 37.5em) / 37.5); } }
   @media screen and (min-width: 75em) {
-    h4.lowdown {
-      font-size: 1.5rem; } }
+    h3.lowdown {
+      font-size: 2.25rem; } }
 
 p.experience-title {
   font-family: "futura-pt", sans-serif;

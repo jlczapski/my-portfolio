@@ -309,8 +309,8 @@ p.about-desc {
 	}
 }
 
-h4.lowdown {
-	@include fluid-type(font-size, 37.5em, 75em, $h4-min, $h4-max);
+h3.lowdown {
+	@include fluid-type(font-size, 37.5em, 75em, $h3-min, $h3-max);
 	font-family: $futura;
 	color: $font-dark;
 	font-weight: 500;
