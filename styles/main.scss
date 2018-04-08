@@ -508,6 +508,9 @@ h4.details-title {
 
 #btn-2 {
 	margin-left: 24px;
+	@include responsive(extra-small-screens) {
+		margin-left: 0;
+	}
 }
 
 .btn:hover {
