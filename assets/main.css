@@ -308,7 +308,8 @@ p.project-desc-1 a, p.project-desc-2 a {
 p.enter-site {
   font-family: "futura-pt", sans-serif;
   font-size: 20px;
-  color: #404040; }
+  color: #404040;
+  font-weight: 500; }
 
 p.enter-site a {
   color: inherit; }
