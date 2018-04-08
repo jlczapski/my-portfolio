@@ -534,7 +534,7 @@ h4.details-title {
     }
 }
 
-// Image Styles
+// Image & Icon Styles
 #html, #css, #sass, #javascript, #photoshop {
 	width: 48px;
 	height: 48px;
@@ -651,4 +651,15 @@ h4.details-title {
 
 .box:hover .enter {
     opacity: 1;
+}
+
+// Mobile Styles (remove hover effects)
+@media hover:none {
+	.overlay {
+		opacity: 0;
+	}
+	.btn:focus {
+		background-color: transparent;
+		color: $font-light-1;
+	}
 }
