@@ -126,7 +126,7 @@ html, body {
 }
 
 .inner-content {
-    padding: 48px;
+    padding:  24px 48px 48px 48px;
     @include responsive(medium-screens) {
     	padding: 36px;
     }
@@ -148,10 +148,10 @@ html, body {
 .projects {
 	padding: 36px 48px 36px 48px;
 	@include responsive(medium-screens) {
-		padding: 36px 36px 0 36px;
+		padding: 36px;
 	}
 	@include responsive(small-screens) {
-		padding: 24px 24px 0 24px;
+		padding: 24px;
 	}
 }
 
@@ -167,6 +167,50 @@ html, body {
 
 #project-1, #project-2 {
     padding: 0;
+}
+
+#project-1 {
+	@include responsive(small-screens) {
+		margin-bottom: 24px;
+	}
+}
+
+.info {
+	max-width: 90%;
+	@include responsive(small-screens) {
+		max-width: 100%;
+	}
+}
+
+.contact {
+	width: 100%;
+	height: auto;
+	@include bg-dimensions;
+	background-image: url('../images/bg-contact.jpg');
+	padding: 36px 48px 36px 48px;
+	@include responsive(medium-screens) {
+		padding: 36px;
+	}
+	@include responsive(small-screens) {
+		padding: 24px;
+	}
+}
+
+#contact-1 {
+	padding: 0;
+}
+
+#contact-2 {
+	padding: 0 0 0 24px;
+	@include responsive(medium-screens) {
+		padding: 0;
+	}
+}
+
+.social-media {
+	display: flex;
+	align-items: center;
+	margin: 48px 0 0 0;
 }
 
 // Navbar Styles
@@ -189,6 +233,11 @@ html, body {
 	@include transition;
 }
 
+.nav-wrapper ul.right li a:hover {
+    color: $font-dark;
+    @include transition;
+}
+
 .nav-wrapper ul.side-nav li a {
 	color: $font-dark;
 	font-family: $futura;
@@ -205,11 +254,6 @@ html, body {
 
 a#burger {
 	margin: 0;
-}
-
-ul.right .menu-1:hover a, ul.right .menu-2:hover a, ul.right .menu-3:hover a, ul.right .menu-4:hover a {
-    color: $accent;
-    @include transition;
 }
 
 // Text Styles
@@ -343,19 +387,106 @@ h2.projects-title {
 	margin: 0 0 24px 0;
 }
 
-h4.project-title-1 {
+h4.project-title-1, h4.project-title-2 {
 	@include fluid-type(font-size, 37.5em, 75em, $h4-min, $h4-max);
 	font-family: $futura;
-	font-weight: 500;
+	color: $font-dark;
 }
 
-p.project-desc {
+p.project-desc-1, p.project-desc-2 {
 	font-family: $source;
 	color: $font-dark-1;
 	line-height: 1.5;
 	font-size: 18px;
 	max-width: 30rem;
+	margin: 24px 0 0 0;
+	@include responsive(medium-screens) {
+		font-size: 17px;
+	}
+	@include responsive(small-screens) {
+		max-width: 50rem;
+	}
+}
 
+p.project-desc-1 a, p.project-desc-2 a {
+	color: inherit;
+}
+
+h3.more {
+	@include fluid-type(font-size, 37.5em, 75em, $h3-min, $h3-max);
+	font-family: $futura;
+	font-weight: 500;
+	margin: 48px 0 0 0;
+}
+
+p.more-desc {
+	font-family: $source;
+	color: $font-dark-1;
+	line-height: 1.5;
+	font-size: 18px;
+	max-width: 55rem;
+	margin: 24px 0 24px 0;
+	@include responsive(medium-screens) {
+		font-size: 17px;
+	}
+	@include responsive(small-screens) {
+		font-size: 16px;
+	}
+}
+
+h2.contact-title {
+	@include fluid-type(font-size, 37.5em, 75em, $h2-min, $h2-max);
+	font-family: $futura-bold;
+	color: $font-light;
+}
+
+p.contact-desc {
+	font-family: $source;
+	color: $font-light-1;
+	line-height: 1.5;
+	font-size: 18px;
+	max-width: 55rem;
+	@include responsive(medium-screens) {
+		max-width: 50rem;
+		font-size: 17px;
+	}
+	@include responsive(small-screens) {
+		font-size: 16px;
+	}
+}
+
+p.email, p.phone {
+	font-family: $source;
+	color: $font-light-1;
+	font-size: 18px;
+	font-weight: 500;
+	@include responsive(medium-screens) {
+		font-size: 17px;
+	}
+	@include responsive(small-screens) {
+		font-size: 16px;
+	}
+}
+
+span.address, span.number {
+	font-family: $source;
+	color: $font-light-1;
+	font-size: 26px;
+	font-weight: 300;
+	@include responsive(medium-screens) {
+		font-size: 24px;
+	}
+	@include responsive(small-screens) {
+		font-size: 22px;
+	}
+}
+
+span.address a {
+	color: inherit;
+}
+
+h4.details-title {
+	@include fluid-type(font-size, 37.5em, 75em, $h4-min, $h4-max);
 }
 
 // Button Styles
@@ -385,6 +516,11 @@ p.project-desc {
 	color: $font-dark;
 }
 
+.btn:focus {
+    background-color: $font-light-1;
+    color: $font-dark;
+}
+
 .buttons {
     margin: 48px 0 24px 0;
     @include responsive(medium-screens) {
@@ -404,10 +540,42 @@ p.project-desc {
 	height: auto;
 }
 
+#linkedin, #github, #codepen {
+	width: 24px;
+	height: 24px;
+	margin: 0 12px 0 0;
+	@include responsive(medium-screens) {
+		width: 22px;
+		height: 22px;
+	}
+	@include responsive(small-screens) {
+		width: 21px;
+		height: 21px;
+	}
+}
+
+.material-icons {
+	color: rgba(255, 255, 255, 1);
+	@include transition;
+}
+
+.btn:hover .material-icons {
+	color: rgba(64, 64, 64, 1);
+	@include transition;
+}
+
+.btn:focus .material-icons {
+	color: rgba(64, 64, 64, 1);
+	@include transition;
+}
+
 // Overlay styles
 .box {
 	position: relative;
-	width: 100%;
+	width: 95%;
+	@include responsive(small-screens) {
+		width: 100%;
+	}
 }
 
 .overlay {
