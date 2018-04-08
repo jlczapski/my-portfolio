@@ -106,7 +106,7 @@ $width-xl: 1440px;
 $width-l: 1200px;
 $width-m: 992px;
 $width-s: 600px;
-$width-xs: 320px;
+$width-xs: 360px;
 
 /* -- GLOBAL STYLES -- */
 
@@ -508,9 +508,11 @@ h4.details-title {
 
 #btn-2 {
 	margin-left: 24px;
+	@include responsive(small-screens) {
+		margin: 0;
+	}
 	@include responsive(extra-small-screens) {
-		margin-left: 0;
-		margin-top: 12px;
+		margin: 12px 0 0 0;
 	}
 }
 
@@ -577,12 +579,9 @@ h4.details-title {
 .box {
 	position: relative;
 	width: 95%;
-<<<<<<< HEAD
-=======
 	@include responsive(small-screens) {
 		width: 100%;
 	}
->>>>>>> dev
 }
 
 .overlay {
