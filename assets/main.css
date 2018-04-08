@@ -16,7 +16,7 @@ html, body {
   background-image: url("../images/bg-test.jpg"); }
 
 .inner-content {
-  padding: 48px; }
+  padding: 24px 48px 48px 48px; }
   @media only screen and (max-width: 992px) {
     .inner-content {
       padding: 36px; } }
@@ -37,10 +37,10 @@ html, body {
   padding: 36px 48px 36px 48px; }
   @media only screen and (max-width: 992px) {
     .projects {
-      padding: 36px 36px 0 36px; } }
+      padding: 36px; } }
   @media only screen and (max-width: 600px) {
     .projects {
-      padding: 24px 24px 0 24px; } }
+      padding: 24px; } }
 
 #projects-row {
   padding: 48px 0 0 0; }
@@ -53,6 +53,45 @@ html, body {
 
 #project-1, #project-2 {
   padding: 0; }
+
+@media only screen and (max-width: 600px) {
+  #project-1 {
+    margin-bottom: 24px; } }
+
+.info {
+  max-width: 90%; }
+  @media only screen and (max-width: 600px) {
+    .info {
+      max-width: 100%; } }
+
+.contact {
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url("../images/bg-contact.jpg");
+  padding: 36px 48px 36px 48px; }
+  @media only screen and (max-width: 992px) {
+    .contact {
+      padding: 36px; } }
+  @media only screen and (max-width: 600px) {
+    .contact {
+      padding: 24px; } }
+
+#contact-1 {
+  padding: 0; }
+
+#contact-2 {
+  padding: 0 0 0 24px; }
+  @media only screen and (max-width: 992px) {
+    #contact-2 {
+      padding: 0; } }
+
+.social-media {
+  display: flex;
+  align-items: center;
+  margin: 48px 0 0 0; }
 
 .nav-wrapper {
   padding: 0 48px 0 48px; }
@@ -71,6 +110,10 @@ html, body {
   background-color: transparent;
   transition: ease-in-out .25s; }
 
+.nav-wrapper ul.right li a:hover {
+  color: #404040;
+  transition: ease-in-out .25s; }
+
 .nav-wrapper ul.side-nav li a {
   color: #404040;
   font-family: "futura-pt", sans-serif;
@@ -85,10 +128,6 @@ html, body {
 
 a#burger {
   margin: 0; }
-
-ul.right .menu-1:hover a, ul.right .menu-2:hover a, ul.right .menu-3:hover a, ul.right .menu-4:hover a {
-  color: #E6EAF6;
-  transition: ease-in-out .25s; }
 
 h3.name {
   font-size: 1.44rem;
@@ -242,23 +281,120 @@ h2.projects-title {
     h2.projects-title {
       font-size: 3.375rem; } }
 
-h4.project-title-1 {
+h4.project-title-1, h4.project-title-2 {
   font-size: 1.2rem;
   font-family: "futura-pt", sans-serif;
-  font-weight: 500; }
+  color: #404040; }
   @media screen and (min-width: 37.5em) {
-    h4.project-title-1 {
+    h4.project-title-1, h4.project-title-2 {
       font-size: calc(1.2rem + 0.3 * (100vw - 37.5em) / 37.5); } }
   @media screen and (min-width: 75em) {
-    h4.project-title-1 {
+    h4.project-title-1, h4.project-title-2 {
       font-size: 1.5rem; } }
 
-p.project-desc {
+p.project-desc-1, p.project-desc-2 {
   font-family: "Source Sans Pro", sans-serif;
   color: #626161;
   line-height: 1.5;
   font-size: 18px;
-  max-width: 30rem; }
+  max-width: 30rem;
+  margin: 24px 0 0 0; }
+  @media only screen and (max-width: 992px) {
+    p.project-desc-1, p.project-desc-2 {
+      font-size: 17px; } }
+  @media only screen and (max-width: 600px) {
+    p.project-desc-1, p.project-desc-2 {
+      max-width: 50rem; } }
+
+p.project-desc-1 a, p.project-desc-2 a {
+  color: inherit; }
+
+h3.more {
+  font-size: 1.44rem;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 500;
+  margin: 48px 0 0 0; }
+  @media screen and (min-width: 37.5em) {
+    h3.more {
+      font-size: calc(1.44rem + 0.81 * (100vw - 37.5em) / 37.5); } }
+  @media screen and (min-width: 75em) {
+    h3.more {
+      font-size: 2.25rem; } }
+
+p.more-desc {
+  font-family: "Source Sans Pro", sans-serif;
+  color: #626161;
+  line-height: 1.5;
+  font-size: 18px;
+  max-width: 55rem;
+  margin: 24px 0 24px 0; }
+  @media only screen and (max-width: 992px) {
+    p.more-desc {
+      font-size: 17px; } }
+  @media only screen and (max-width: 600px) {
+    p.more-desc {
+      font-size: 16px; } }
+
+h2.contact-title {
+  font-size: 1.728rem;
+  font-family: "futura-pt-bold", sans-serif;
+  color: #FFFFFF; }
+  @media screen and (min-width: 37.5em) {
+    h2.contact-title {
+      font-size: calc(1.728rem + 1.647 * (100vw - 37.5em) / 37.5); } }
+  @media screen and (min-width: 75em) {
+    h2.contact-title {
+      font-size: 3.375rem; } }
+
+p.contact-desc {
+  font-family: "Source Sans Pro", sans-serif;
+  color: #FCFCFC;
+  line-height: 1.5;
+  font-size: 18px;
+  max-width: 55rem; }
+  @media only screen and (max-width: 992px) {
+    p.contact-desc {
+      max-width: 50rem;
+      font-size: 17px; } }
+  @media only screen and (max-width: 600px) {
+    p.contact-desc {
+      font-size: 16px; } }
+
+p.email, p.phone {
+  font-family: "Source Sans Pro", sans-serif;
+  color: #FCFCFC;
+  font-size: 18px;
+  font-weight: 500; }
+  @media only screen and (max-width: 992px) {
+    p.email, p.phone {
+      font-size: 17px; } }
+  @media only screen and (max-width: 600px) {
+    p.email, p.phone {
+      font-size: 16px; } }
+
+span.address, span.number {
+  font-family: "Source Sans Pro", sans-serif;
+  color: #FCFCFC;
+  font-size: 26px;
+  font-weight: 300; }
+  @media only screen and (max-width: 992px) {
+    span.address, span.number {
+      font-size: 24px; } }
+  @media only screen and (max-width: 600px) {
+    span.address, span.number {
+      font-size: 22px; } }
+
+span.address a {
+  color: inherit; }
+
+h4.details-title {
+  font-size: 1.2rem; }
+  @media screen and (min-width: 37.5em) {
+    h4.details-title {
+      font-size: calc(1.2rem + 0.3 * (100vw - 37.5em) / 37.5); } }
+  @media screen and (min-width: 75em) {
+    h4.details-title {
+      font-size: 1.5rem; } }
 
 .btn {
   text-transform: uppercase;
@@ -283,6 +419,10 @@ p.project-desc {
   border: 1px solid #FFFFFF;
   color: #404040; }
 
+.btn:focus {
+  background-color: #FCFCFC;
+  color: #404040; }
+
 .buttons {
   margin: 48px 0 24px 0; }
   @media only screen and (max-width: 992px) {
@@ -298,9 +438,40 @@ p.project-desc {
   width: 100%;
   height: auto; }
 
+#linkedin, #github, #codepen {
+  width: 24px;
+  height: 24px;
+  margin: 0 12px 0 0; }
+  @media only screen and (max-width: 992px) {
+    #linkedin, #github, #codepen {
+      width: 22px;
+      height: 22px; } }
+  @media only screen and (max-width: 600px) {
+    #linkedin, #github, #codepen {
+      width: 21px;
+      height: 21px; } }
+
+.material-icons {
+  color: white;
+  transition: ease-in-out .25s; }
+
+.btn:hover .material-icons {
+  color: #404040;
+  transition: ease-in-out .25s; }
+
+.btn:focus .material-icons {
+  color: #404040;
+  transition: ease-in-out .25s; }
+
 .box {
   position: relative;
   width: 95%; }
+<<<<<<< HEAD
+=======
+  @media only screen and (max-width: 600px) {
+    .box {
+      width: 100%; } }
+>>>>>>> dev
 
 .overlay {
   position: absolute;
