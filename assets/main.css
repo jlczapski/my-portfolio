@@ -1,3 +1,5 @@
+/* -- MIXINS -- */
+/* -- VARIABLES -- */
 /* -- GLOBAL STYLES -- */
 html, body {
   font-size: 16px;
@@ -411,6 +413,10 @@ h4.details-title {
 
 #btn-2 {
   margin-left: 24px; }
+  @media only screen and (max-width: 320px) {
+    #btn-2 {
+      margin-left: 0;
+      margin-top: 12px; } }
 
 .btn:hover {
   background-color: #FFFFFF;

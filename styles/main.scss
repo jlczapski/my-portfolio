@@ -510,6 +510,7 @@ h4.details-title {
 	margin-left: 24px;
 	@include responsive(extra-small-screens) {
 		margin-left: 0;
+		margin-top: 12px;
 	}
 }
 
