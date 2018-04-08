@@ -652,14 +652,3 @@ h4.details-title {
 .box:hover .enter {
     opacity: 1;
 }
-
-// Mobile Styles (remove hover effects)
-@media hover:none {
-	.overlay {
-		opacity: 0;
-	}
-	.btn:focus {
-		background-color: transparent;
-		color: $font-light-1;
-	}
-}
