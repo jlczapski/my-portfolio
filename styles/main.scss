@@ -233,11 +233,6 @@ html, body {
 	@include transition;
 }
 
-.nav-wrapper ul.right li a:hover {
-    color: $font-dark;
-    @include transition;
-}
-
 .nav-wrapper ul.side-nav li a {
 	color: $font-dark;
 	font-family: $futura;
@@ -516,17 +511,6 @@ h4.details-title {
 	}
 }
 
-.btn:hover {
-	background-color: $font-light;
-	border: 1px solid $font-light;
-	color: $font-dark;
-}
-
-.btn:focus {
-    background-color: $font-light-1;
-    color: $font-dark;
-}
-
 .buttons {
     margin: 48px 0 24px 0;
     @include responsive(medium-screens) {
@@ -565,16 +549,6 @@ h4.details-title {
 	@include transition;
 }
 
-.btn:hover .material-icons {
-	color: rgba(64, 64, 64, 1);
-	@include transition;
-}
-
-.btn:focus .material-icons {
-	color: rgba(64, 64, 64, 1);
-	@include transition;
-}
-
 // Overlay styles
 .box {
 	position: relative;
@@ -597,10 +571,6 @@ h4.details-title {
 	background-color: $accent-1;
 }
 
-.box:hover .overlay {
-	opacity: 0.85;
-}
-
 .overlay-text {
 	font-family: $futura;
 	color: $font-light;
@@ -616,11 +586,6 @@ h4.details-title {
     @include responsive(medium-screens) {
     	font-size: 20px;
     }
-}
-
-.box:hover .overlay-text {
-	margin-top: 0;
-	@include transition-stagger-1;
 }
 
 .enter {
@@ -645,10 +610,41 @@ h4.details-title {
 	color: inherit;
 }
 
-.enter a:hover {
-	text-decoration: underline;
+@media (hover: hover) {
+    .enter a:hover {
+		text-decoration: underline;
+	}
+	.box:hover .enter {
+	    opacity: 1;
+	}
+	.box:hover .overlay-text {
+		margin-top: 0;
+		@include transition-stagger-1;
+	}
+	.box:hover .overlay {
+		opacity: 0.85;
+	}
+	.btn:hover .material-icons {
+		color: rgba(64, 64, 64, 1);
+		@include transition;
+	}
+	.btn:focus .material-icons {
+		color: rgba(64, 64, 64, 1);
+		@include transition;
+	}
+	.btn:hover {
+		background-color: $font-light;
+		border: 1px solid $font-light;
+		color: $font-dark;
+	}
+	.btn:focus {
+	    background-color: $font-light-1;
+	    color: $font-dark;
+	}
+	.nav-wrapper ul.right li a:hover {
+	    color: $font-dark;
+	    @include transition;
+	}
 }
 
-.box:hover .enter {
-    opacity: 1;
-}
+
